@@ -23,7 +23,7 @@ The `_jamal.yml` file is used to configure the server. It contains the following
 - `user`: The username of the server.
 - `password`: The password of the server.
 - `domains`: The domains of the website.
-- `path`: The path to the website on your local machine.
+- `local_path`: The path to the website on your local machine.
 
 ## License
 
