@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "jamal"
+
+command = ARGV[0]
+options = {}
+
+case command
+when "setup"
+  # Parse setup options
+  require 'optparse'
+  OptionParser.new do |opts|
+    opts.banner = "Usage: jamal deploy [--config CONFIG_PATH]"
+    
+    opts.on("--config CONFIG", "Path to config file") { |c| options[:config_path] = c }
+  end.parse!
+
+  Jamal::CLI.setup(**options)
+
+when "deploy"
+  # Parse deploy options
+  require 'optparse'
+  OptionParser.new do |opts|
+    opts.banner = "Usage: jamal deploy [--config CONFIG_PATH]"
+    
+    opts.on("--config CONFIG", "Path to config file") { |c| options[:config_path] = c }
+  end.parse!
+
+  Jamal::CLI.deploy(**options)
+
+when "remove"
+  # Parse remove options
+  require 'optparse'
+  OptionParser.new do |opts|
+    opts.banner = "Usage: jamal remove [--config CONFIG_PATH]"
+    
+    opts.on("--config CONFIG", "Path to config file") { |c| options[:config_path] = c }
+  end.parse!
+
+  Jamal::CLI.remove(**options)
+
+when "init"
+  Jamal::CLI.init(**options)
+
+when "-v"
+  puts "Jamal #{Jamal::VERSION}"
+  exit 0
+
+else
+  puts "Unknown command: #{command}"
+  puts "Available commands: setup, deploy, remove, init, -v"
+  exit 1
+end 
