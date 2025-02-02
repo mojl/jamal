@@ -2,6 +2,11 @@
 
 Jamal is a lightweight tool to deploy static websites to remote web servers.
 
+## Prerequisites
+
+- A remote server running Ubuntu or Debian (we only support these for now).
+- Ports 22 (SSH), 80 (HTTP) and 873 (rsync) open and accessible from the internet.
+
 ## Installation
 
 ```bash
@@ -9,6 +14,7 @@ gem install jamal
 ```
 
 ## Usage
+
 1. Run `jamal init` to initialize the configuration file `_jamal.yml`.
 2. Edit the `_jamal.yml` file to match your server configuration.
 3. Run the `jamal setup` command to setup the server.
