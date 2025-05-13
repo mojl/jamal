@@ -127,6 +127,18 @@ module Jamal
               location / {
                 try_files $uri $uri/ =404;
               }
+              
+              error_page 400 /400.html;
+              error_page 401 /401.html;
+              error_page 403 /403.html;
+              error_page 404 /404.html;
+              error_page 405 /405.html;
+              error_page 408 /408.html;
+              error_page 429 /429.html;
+              error_page 500 /500.html;
+              error_page 502 /502.html;
+              error_page 503 /503.html;
+              error_page 504 /504.html;
             }
           CONFIG
           
